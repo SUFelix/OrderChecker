@@ -9,6 +9,11 @@ namespace OrderChecker
             BaguettePreisLabel.Text = "2.90 €";
             AmperlaiberlPreisLabel.Text = "9.00 €";
             pdaPreisLabel.Text = "7.50 €";
+
+            comboBox1.SelectedItem = "1";
+            comboBox2.SelectedItem = "1";
+            comboBox3.SelectedItem = "1";
+            comboBox4.SelectedItem = "1";
         }
 
         int brezenAnzahlBestellung = 0;
@@ -34,7 +39,7 @@ namespace OrderChecker
             brezenAnzahlBestellung = brezenAnzahlBestellung + brezenAnzahl;
             renewBestellText();
             calcTotalPrice();
-            textBox5.Text = Math.Round(gesamtPreis,2).ToString();
+            textBox5.Text = MyOwnRound(gesamtPreis);
             textBox5.Refresh();
 
         }
@@ -47,7 +52,7 @@ namespace OrderChecker
             renewBestellText();
             
             calcTotalPrice();
-            textBox5.Text = gesamtPreis.ToString();
+            textBox5.Text = MyOwnRound(gesamtPreis);
             textBox5.Refresh();
 
         }
@@ -58,7 +63,7 @@ namespace OrderChecker
             amperlaiberlAnzahlBestellung = amperlaiberlAnzahl + amperlaiberlAnzahlBestellung;
             renewBestellText();
             calcTotalPrice();
-            textBox5.Text = gesamtPreis.ToString();
+            textBox5.Text = MyOwnRound(gesamtPreis);
             textBox5.Refresh();
         }
 
@@ -98,7 +103,7 @@ namespace OrderChecker
             richTextBox1.Text = richTextBox1.Text + pdaAnzahl + " Pain des Ami     ";
             pdaAnzahlBestellung = pdaAnzahlBestellung + pdaAnzahl;
             calcTotalPrice();
-            textBox5.Text = gesamtPreis.ToString();
+            textBox5.Text = MyOwnRound(gesamtPreis);
             textBox5.Refresh();
 
         }
@@ -111,7 +116,7 @@ namespace OrderChecker
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
-            textBox5.Text = gesamtPreis.ToString();
+            textBox5.Text = MyOwnRound(gesamtPreis);
         }
 
         private void calcTotalPrice() 
@@ -192,6 +197,22 @@ namespace OrderChecker
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private String MyOwnRound(float a) {
+        String s = a.ToString();
+            int lenght = s.Length;
+            if (lenght == 4 && a >= 10) s = s + "0";
+            else if (lenght == 1) s = s + ",00";
+            else if (lenght == 2) s = s + ",00";
+            else if (lenght == 3 && a<100) s = s + "0";
+            else if (lenght >= 5 && a < 100) s = s.Substring(0, 5);
+            else if (lenght == 5 && a > 100) s = s + "0";
+            else if (lenght >= 6 && a < 1000 && a >= 100) s = s.Substring(0, 6);
+
+            s = s + "€";
+
+            return s;
         }
     }
 }

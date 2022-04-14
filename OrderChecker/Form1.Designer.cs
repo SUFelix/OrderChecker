@@ -58,42 +58,46 @@
             // 
             // brezenButton
             // 
+            this.brezenButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.brezenButton.Location = new System.Drawing.Point(499, 79);
             this.brezenButton.Name = "brezenButton";
             this.brezenButton.Size = new System.Drawing.Size(94, 29);
             this.brezenButton.TabIndex = 0;
             this.brezenButton.Text = "Hinzufügen";
-            this.brezenButton.UseVisualStyleBackColor = true;
+            this.brezenButton.UseVisualStyleBackColor = false;
             this.brezenButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button2.Location = new System.Drawing.Point(499, 141);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 1;
             this.button2.Text = "Hinzufügen";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button3.Location = new System.Drawing.Point(499, 201);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(94, 29);
             this.button3.TabIndex = 2;
             this.button3.Text = "Hinzufügen";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button4.Location = new System.Drawing.Point(499, 258);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 29);
             this.button4.TabIndex = 3;
             this.button4.Text = "Hinzufügen";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
