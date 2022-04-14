@@ -91,6 +91,7 @@ namespace OrderChecker
             baguetteAnzahlBestellung = 0;
             amperlaiberlAnzahlBestellung = 0;
             pdaAnzahlBestellung = 0;
+            containsPDA = false;
 
             calcTotalPrice();
             textBox5.Text = gesamtPreis.ToString();
@@ -103,7 +104,9 @@ namespace OrderChecker
             int pdaAnzahl = int.Parse(comboBox4.SelectedItem.ToString());
             richTextBox1.Text = richTextBox1.Text + pdaAnzahl + " Pain des Ami     ";
             pdaAnzahlBestellung = pdaAnzahlBestellung + pdaAnzahl;
+            containsPDA = true;
             calcTotalPrice();
+            
             textBox5.Text = MyOwnRound(gesamtPreis);
             textBox5.Refresh();
 
@@ -135,8 +138,13 @@ namespace OrderChecker
         }
         private void bestellStatusChecken()
         {
-            if (baguetteAnzahlBestellung==8) valide = true;
+            if (baguetteAnzahlBestellung%8==0) valide = true;
+            
             else valide = false;
+            //Bestell Logik vor dem aufruf von valideDate() einfügen, da valide Date nur auf false setzt (evtl.)
+
+
+
             valideDate();
 
 
@@ -177,7 +185,10 @@ namespace OrderChecker
         }
 
         private void valideDate() {
-            if (abholDatum < (DateTime.Now).AddDays(2)) valide = false;
+            int vorlaufZeit = 0;
+            if (containsPDA) vorlaufZeit = 1;
+            if (abholDatum < (DateTime.Now).AddDays(vorlaufZeit)) valide = false;
+            
         }
 
         private void BrezePreisLabel_Click(object sender, EventArgs e)
