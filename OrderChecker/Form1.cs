@@ -30,6 +30,7 @@ namespace OrderChecker
 
         float gesamtPreis = 0.00f;
         Boolean valide = false;
+        Boolean containsPDA = false; //PDA = "Pain des Ami" needs more time for preperation and therefore has to be ordered further in advance
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -200,8 +201,10 @@ namespace OrderChecker
         }
 
         private String MyOwnRound(float a) {
-        String s = a.ToString();
+        
+            String s = a.ToString();
             int lenght = s.Length;
+
             if (lenght == 4 && a >= 10) s = s + "0";
             else if (lenght == 1) s = s + ",00";
             else if (lenght == 2) s = s + ",00";
